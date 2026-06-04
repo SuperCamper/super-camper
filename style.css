@@ -5,8 +5,8 @@
 }
 
 body{
-    font-family:"Khmer OS Battambang",sans-serif;
-    background:#e9ecef;
+    font-family:'Kantumruy Pro','Khmer OS Battambang',sans-serif;
+    background:#ececec;
 }
 
 .container{
@@ -17,16 +17,15 @@ body{
 /* Sidebar */
 
 .sidebar{
-    width:320px;
+    width:280px;
     background:#ffffff;
     padding:20px;
     border-right:1px solid #ddd;
-    overflow-y:auto;
 }
 
 .sidebar h1{
-    text-align:center;
     margin-bottom:20px;
+    text-align:center;
 }
 
 .sidebar label{
@@ -42,18 +41,18 @@ body{
     width:100%;
     padding:10px;
     border:1px solid #ccc;
-    border-radius:6px;
+    border-radius:8px;
 }
 
 .sidebar button{
     width:100%;
-    margin-top:10px;
     padding:12px;
+    margin-top:12px;
     border:none;
-    border-radius:6px;
+    border-radius:8px;
+    cursor:pointer;
     color:white;
     font-weight:bold;
-    cursor:pointer;
 }
 
 #downloadPNG{
@@ -64,7 +63,7 @@ body{
     background:#dc3545;
 }
 
-/* Preview Area */
+/* Preview */
 
 .preview-wrapper{
     flex:1;
@@ -72,8 +71,9 @@ body{
     justify-content:center;
     align-items:flex-start;
     padding:20px;
-    overflow:auto;
 }
+
+/* Certificate */
 
 #certificate{
     width:768px;
@@ -84,22 +84,26 @@ body{
     background-image:url("ក្រហម.png");
     background-size:cover;
     background-position:center;
+    background-repeat:no-repeat;
 
-    box-shadow:0 8px 25px rgba(0,0,0,.25);
+    overflow:hidden;
+
+    box-shadow:
+        0 10px 30px rgba(0,0,0,.25);
 }
 
 /* Logo */
 
 .logo-preview{
     position:absolute;
-    top:22px;
-    left:50%;
-    transform:translateX(-50%);
 
     width:90px;
     height:90px;
 
-    object-fit:contain;
+    top:30px;
+    left:50%;
+
+    transform:translateX(-50%);
 }
 
 /* Photo 4x6 */
@@ -107,20 +111,19 @@ body{
 .photo-preview{
     position:absolute;
 
-    width:180px;
-    height:240px;
+    width:150px;
+    height:225px;
 
-    top:285px;
-    left:50%;
-
-    transform:translateX(-50%);
+    top:255px;
+    left:309px;
 
     object-fit:cover;
 
     border:5px solid #fff;
     border-radius:10px;
 
-    box-shadow:0 5px 20px rgba(0,0,0,.35);
+    box-shadow:
+        0 8px 20px rgba(0,0,0,.35);
 }
 
 /* Name */
@@ -128,7 +131,7 @@ body{
 .name-preview{
     position:absolute;
 
-    top:575px;
+    top:545px;
     left:50%;
 
     transform:translateX(-50%);
@@ -137,12 +140,13 @@ body{
 
     text-align:center;
 
-    color:#ffffff;
+    color:white;
 
-    font-size:48px;
+    font-size:52px;
     font-weight:bold;
 
-    text-shadow:3px 3px 10px rgba(0,0,0,.6);
+    text-shadow:
+        0 3px 8px rgba(0,0,0,.5);
 }
 
 /* Reason */
@@ -150,21 +154,22 @@ body{
 .reason-preview{
     position:absolute;
 
-    top:715px;
+    top:690px;
     left:50%;
 
     transform:translateX(-50%);
 
-    width:85%;
+    width:80%;
 
     text-align:center;
 
-    color:#ffffff;
+    color:white;
 
-    font-size:24px;
+    font-size:28px;
     line-height:1.6;
 
-    text-shadow:2px 2px 8px rgba(0,0,0,.6);
+    text-shadow:
+        0 3px 8px rgba(0,0,0,.5);
 }
 
 /* Group */
@@ -181,10 +186,11 @@ body{
 
     text-align:center;
 
-    color:#ffffff;
+    color:white;
 
-    font-size:30px;
+    font-size:34px;
     font-weight:bold;
 
-    text-shadow:2px 2px 8px rgba(0,0,0,.6);
+    text-shadow:
+        0 3px 8px rgba(0,0,0,.5);
 }
