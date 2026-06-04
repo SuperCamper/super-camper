@@ -1,65 +1,117 @@
-const certificate = document.getElementById("certificate");
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
 
-const recipientName = document.getElementById("recipientName");
-const reason = document.getElementById("reason");
-const groupColor = document.getElementById("groupColor");
+body{
+    font-family:sans-serif;
+    background:#f5f5f5;
+}
 
-const namePreview = document.getElementById("namePreview");
-const reasonPreview = document.getElementById("reasonPreview");
-const groupPreview = document.getElementById("groupPreview");
+.container{
+    display:flex;
+    min-height:100vh;
+}
 
-const templateSelect = document.getElementById("templateSelect");
+.sidebar{
+    width:300px;
+    background:white;
+    padding:20px;
+    border-right:1px solid #ddd;
+}
 
-recipientName.addEventListener("input", () => {
-    namePreview.textContent = recipientName.value || "ឈ្មោះអ្នកទទួល";
-});
+.sidebar h1{
+    margin-bottom:20px;
+}
 
-reason.addEventListener("input", () => {
-    reasonPreview.textContent = reason.value || "មូលហេតុទទួលវិញ្ញាបនបត្រ";
-});
+.sidebar label{
+    display:block;
+    margin-top:15px;
+    margin-bottom:5px;
+}
 
-groupColor.addEventListener("input", () => {
-    groupPreview.textContent = groupColor.value || "ក្រុម";
-});
+.sidebar input,
+.sidebar textarea,
+.sidebar select{
+    width:100%;
+    padding:8px;
+}
 
-templateSelect.addEventListener("change", () => {
-    certificate.style.backgroundImage =
-        `url('${templateSelect.value}')`;
-});
+.sidebar button{
+    width:100%;
+    margin-top:15px;
+    padding:10px;
+    cursor:pointer;
+}
 
-certificate.style.backgroundImage =
-    `url('${templateSelect.value}')`;
+.preview-wrapper{
+    flex:1;
+    display:flex;
+    justify-content:center;
+    padding:20px;
+}
 
-document.getElementById("photoInput")
-.addEventListener("change", e => {
+#certificate{
+    width:768px;
+    height:1086px;
 
-    const file = e.target.files[0];
+    background-image:url("ក្រហម.png");
+    background-size:cover;
+    background-position:center;
 
-    if(!file) return;
+    position:relative;
+}
 
-    const reader = new FileReader();
+.photo-preview{
+    position:absolute;
+    width:120px;
+    height:120px;
 
-    reader.onload = () => {
-        document.getElementById("photoPreview").src =
-            reader.result;
-    };
+    object-fit:cover;
 
-    reader.readAsDataURL(file);
-});
+    top:330px;
+    left:324px;
 
-document.getElementById("logoInput")
-.addEventListener("change", e => {
+    border-radius:8px;
+    border:4px solid white;
+}
 
-    const file = e.target.files[0];
+.name-preview{
+    position:absolute;
 
-    if(!file) return;
+    top:560px;
+    width:100%;
 
-    const reader = new FileReader();
+    text-align:center;
 
-    reader.onload = () => {
-        document.getElementById("logoPreview").src =
-            reader.result;
-    };
+    color:white;
+    font-size:48px;
+    font-weight:bold;
+}
 
-    reader.readAsDataURL(file);
-});
+.reason-preview{
+    position:absolute;
+
+    top:720px;
+    width:100%;
+
+    text-align:center;
+
+    color:white;
+    font-size:28px;
+
+    padding:0 60px;
+}
+
+.group-preview{
+    position:absolute;
+
+    top:850px;
+    width:100%;
+
+    text-align:center;
+
+    color:white;
+    font-size:32px;
+}
