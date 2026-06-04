@@ -1,3 +1,6 @@
+/* =========================
+   RESET
+========================= */
 *{
     margin:0;
     padding:0;
@@ -6,56 +9,56 @@
 
 body{
     font-family:"Khmer OS Battambang","Khmer OS Siemreap",sans-serif;
-    background:#e5e5e5;
+    background:#ececec;
 }
 
-/* Layout */
+/* =========================
+   LAYOUT
+========================= */
 .container{
     display:flex;
     min-height:100vh;
 }
 
 .sidebar{
-    width:300px;
-    background:#fff;
+    width:280px;
+    background:#ffffff;
     padding:20px;
     border-right:1px solid #ddd;
-    overflow-y:auto;
 }
 
 .sidebar h1{
-    text-align:center;
     margin-bottom:20px;
+    font-size:20px;
 }
 
 .sidebar label{
     display:block;
     margin-top:12px;
     margin-bottom:5px;
-    font-weight:bold;
-    font-size:14px;
+    font-weight:600;
 }
 
 .sidebar input,
 .sidebar textarea,
 .sidebar select{
     width:100%;
-    padding:10px;
+    padding:8px;
     border:1px solid #ccc;
-    border-radius:6px;
+    border-radius:4px;
 }
 
 .sidebar textarea{
     resize:none;
-    height:80px;
+    height:90px;
 }
 
 .sidebar button{
     width:100%;
     padding:10px;
-    border:none;
-    border-radius:6px;
     margin-top:10px;
+    border:none;
+    border-radius:5px;
     cursor:pointer;
     font-weight:bold;
 }
@@ -70,7 +73,9 @@ body{
     color:white;
 }
 
-/* Preview */
+/* =========================
+   PREVIEW
+========================= */
 .preview-wrapper{
     flex:1;
     display:flex;
@@ -79,94 +84,101 @@ body{
     padding:20px;
 }
 
-/* Certificate */
+/* =========================
+   CERTIFICATE
+========================= */
 #certificate{
+    position:relative;
+
     width:768px;
     height:1086px;
 
-    position:relative;
-
-    background-image:url("ក្រហម.png");
     background-size:cover;
     background-position:center;
     background-repeat:no-repeat;
 
-    box-shadow:0 10px 30px rgba(0,0,0,.25);
+    overflow:hidden;
+
+    box-shadow:0 5px 20px rgba(0,0,0,.2);
 }
 
-/* Photo 3x4 */
+/* =========================
+   PHOTO 3x4
+========================= */
 .photo-preview{
     position:absolute;
 
-    width:155px;
-    height:200px;
+    width:120px;
+    height:160px;
 
-    top:225px;
-    left:307px;
+    top:255px;
+    left:324px;
 
     object-fit:cover;
 
-    border:4px solid #fff;
-    border-radius:10px;
+    border:3px solid #fff;
+    border-radius:8px;
 
-    background:white;
-
-    box-shadow:
-        0 5px 15px rgba(0,0,0,.35);
+    box-shadow:0 0 15px rgba(0,0,0,.25);
 }
 
-/* Name */
+/* =========================
+   NAME
+========================= */
 .name-preview{
     position:absolute;
 
-    top:520px;
-    left:0;
-
     width:100%;
+
+    top:560px;
 
     text-align:center;
 
-    color:white;
+    color:#fff;
 
-    font-size:48px;
+    font-size:58px;
     font-weight:bold;
 
     text-shadow:
         0 3px 8px rgba(0,0,0,.5);
 }
 
-/* Reason */
+/* =========================
+   REASON
+========================= */
 .reason-preview{
     position:absolute;
 
-    top:690px;
-    left:70px;
+    width:100%;
 
-    width:630px;
+    top:700px;
+
+    padding:0 80px;
 
     text-align:center;
 
-    color:white;
+    color:#fff;
 
-    font-size:26px;
+    font-size:28px;
     line-height:1.6;
 
     text-shadow:
         0 2px 6px rgba(0,0,0,.5);
 }
 
-/* Group */
+/* =========================
+   GROUP COLOR
+========================= */
 .group-preview{
     position:absolute;
 
-    top:870px;
-    left:0;
-
     width:100%;
+
+    top:860px;
 
     text-align:center;
 
-    color:white;
+    color:#fff;
 
     font-size:34px;
     font-weight:bold;
@@ -175,8 +187,10 @@ body{
         0 2px 6px rgba(0,0,0,.5);
 }
 
-/* Responsive */
-@media(max-width:1200px){
+/* =========================
+   MOBILE
+========================= */
+@media(max-width:1100px){
 
     .container{
         flex-direction:column;
@@ -190,5 +204,7 @@ body{
 
     .preview-wrapper{
         overflow:auto;
+        justify-content:flex-start;
     }
+
 }
