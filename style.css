@@ -1,39 +1,134 @@
-/* ======================
-   PHOTO 4x6
-====================== */
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    font-family:"Khmer OS Battambang",sans-serif;
+    background:#ececec;
+}
+
+.container{
+    display:flex;
+    min-height:100vh;
+}
+
+/* Sidebar */
+
+.sidebar{
+    width:320px;
+    background:#fff;
+    padding:20px;
+    border-right:1px solid #ddd;
+    overflow-y:auto;
+}
+
+.sidebar h1{
+    text-align:center;
+    margin-bottom:20px;
+}
+
+.sidebar label{
+    display:block;
+    margin-top:12px;
+    margin-bottom:5px;
+    font-weight:bold;
+}
+
+.sidebar input,
+.sidebar textarea,
+.sidebar select{
+    width:100%;
+    padding:10px;
+    border:1px solid #ccc;
+    border-radius:6px;
+}
+
+.sidebar button{
+    width:100%;
+    margin-top:10px;
+    padding:12px;
+    border:none;
+    border-radius:6px;
+    color:white;
+    cursor:pointer;
+    font-weight:bold;
+}
+
+#downloadPNG{
+    background:#28a745;
+}
+
+#downloadPDF{
+    background:#dc3545;
+}
+
+/* Preview */
+
+.preview-wrapper{
+    flex:1;
+    display:flex;
+    justify-content:center;
+    align-items:flex-start;
+    padding:20px;
+    overflow:auto;
+}
+
+#certificate{
+    width:768px;
+    height:1086px;
+
+    position:relative;
+
+    background-image:url("ក្រហម.png");
+    background-size:cover;
+    background-position:center;
+
+    box-shadow:0 5px 20px rgba(0,0,0,.25);
+}
+
+/* Logo */
+
+.logo-preview{
+    position:absolute;
+    top:25px;
+    left:50%;
+    transform:translateX(-50%);
+
+    width:95px;
+    height:95px;
+
+    object-fit:contain;
+}
+
+/* Photo 4x6 */
 
 .photo-preview{
     position:absolute;
 
-    width:140px;
-    height:190px;
+    width:180px;
+    height:270px;
 
-    top:280px;
+    top:290px;
     left:50%;
-
     transform:translateX(-50%);
 
     object-fit:cover;
 
-    border:4px solid #ffffff;
-    border-radius:12px;
+    border:5px solid white;
+    border-radius:10px;
 
-    background:white;
-
-    box-shadow:
-    0 4px 15px rgba(0,0,0,.3);
+    box-shadow:0 5px 15px rgba(0,0,0,.35);
 }
 
-/* ======================
-   NAME
-====================== */
+/* Name */
 
 .name-preview{
     position:absolute;
 
-    top:540px;
+    top:610px;
     left:50%;
-
     transform:translateX(-50%);
 
     width:90%;
@@ -41,60 +136,45 @@
     text-align:center;
 
     color:white;
-
-    font-size:38px;
+    font-size:46px;
     font-weight:bold;
 
-    text-shadow:
-    2px 2px 6px rgba(0,0,0,.6);
+    text-shadow:2px 2px 8px rgba(0,0,0,.6);
 }
 
-/* ======================
-   REASON
-====================== */
+/* Reason */
 
 .reason-preview{
     position:absolute;
 
-    top:650px;
+    top:760px;
     left:50%;
-
     transform:translateX(-50%);
 
-    width:80%;
+    width:85%;
 
     text-align:center;
 
     color:white;
+    font-size:26px;
+    line-height:1.7;
 
-    font-size:24px;
-    line-height:1.6;
-
-    text-shadow:
-    2px 2px 6px rgba(0,0,0,.6);
+    text-shadow:2px 2px 8px rgba(0,0,0,.6);
 }
 
-/* ======================
-   GROUP
-====================== */
+/* Group */
 
 .group-preview{
     position:absolute;
 
-    top:790px;
-    left:50%;
-
-    transform:translateX(-50%);
-
-    width:90%;
+    bottom:120px;
+    width:100%;
 
     text-align:center;
 
     color:white;
-
-    font-size:28px;
+    font-size:32px;
     font-weight:bold;
 
-    text-shadow:
-    2px 2px 6px rgba(0,0,0,.6);
+    text-shadow:2px 2px 8px rgba(0,0,0,.6);
 }
