@@ -5,30 +5,27 @@
 }
 
 body{
-    font-family:"Khmer OS Battambang",sans-serif;
-    background:#ececec;
+    font-family:"Khmer OS Battambang","Khmer OS Siemreap",sans-serif;
+    background:#e5e5e5;
 }
 
+/* Layout */
 .container{
     display:flex;
     min-height:100vh;
 }
 
-/* =========================
-   SIDEBAR
-========================= */
-
 .sidebar{
     width:300px;
-    background:#ffffff;
+    background:#fff;
     padding:20px;
     border-right:1px solid #ddd;
+    overflow-y:auto;
 }
 
 .sidebar h1{
     text-align:center;
     margin-bottom:20px;
-    color:#222;
 }
 
 .sidebar label{
@@ -36,7 +33,7 @@ body{
     margin-top:12px;
     margin-bottom:5px;
     font-weight:bold;
-    color:#444;
+    font-size:14px;
 }
 
 .sidebar input,
@@ -45,46 +42,35 @@ body{
     width:100%;
     padding:10px;
     border:1px solid #ccc;
-    border-radius:8px;
-    font-family:inherit;
+    border-radius:6px;
 }
 
 .sidebar textarea{
     resize:none;
+    height:80px;
 }
 
 .sidebar button{
     width:100%;
-    padding:12px;
-    margin-top:12px;
+    padding:10px;
     border:none;
-    border-radius:8px;
-    color:white;
+    border-radius:6px;
+    margin-top:10px;
     cursor:pointer;
     font-weight:bold;
-    font-size:15px;
 }
 
 #downloadPNG{
     background:#28a745;
-}
-
-#downloadPNG:hover{
-    background:#23913c;
+    color:white;
 }
 
 #downloadPDF{
     background:#dc3545;
+    color:white;
 }
 
-#downloadPDF:hover{
-    background:#bb2d3b;
-}
-
-/* =========================
-   PREVIEW
-========================= */
-
+/* Preview */
 .preview-wrapper{
     flex:1;
     display:flex;
@@ -93,10 +79,7 @@ body{
     padding:20px;
 }
 
-/* =========================
-   CERTIFICATE
-========================= */
-
+/* Certificate */
 #certificate{
     width:768px;
     height:1086px;
@@ -108,105 +91,36 @@ body{
     background-position:center;
     background-repeat:no-repeat;
 
-    overflow:hidden;
-
-    box-shadow:
-    0 10px 30px rgba(0,0,0,.25);
+    box-shadow:0 10px 30px rgba(0,0,0,.25);
 }
 
-/* =========================
-   LOGO
-========================= */
-
-.logo-preview{
-    display:none;
-}
-
-/* =========================
-   PHOTO 3x4
-========================= */
-
+/* Photo 3x4 */
 .photo-preview{
     position:absolute;
 
-    width:200px;
-    height:267px;
+    width:155px;
+    height:200px;
 
-    top:260px;
-    left:284px;
+    top:225px;
+    left:307px;
 
     object-fit:cover;
 
+    border:4px solid #fff;
+    border-radius:10px;
+
     background:white;
 
-    border:6px solid white;
-    border-radius:12px;
-
     box-shadow:
-    0 8px 25px rgba(0,0,0,.35);
+        0 5px 15px rgba(0,0,0,.35);
 }
 
-/* =========================
-   NAME
-========================= */
-
+/* Name */
 .name-preview{
     position:absolute;
 
-    top:600px;
-    left:50%;
-
-    transform:translateX(-50%);
-
-    width:90%;
-
-    text-align:center;
-
-    color:white;
-
-    font-size:56px;
-    font-weight:bold;
-
-    text-shadow:
-    0 3px 8px rgba(0,0,0,.55);
-}
-
-/* =========================
-   REASON
-========================= */
-
-.reason-preview{
-    position:absolute;
-
-    top:760px;
-    left:50%;
-
-    transform:translateX(-50%);
-
-    width:80%;
-
-    text-align:center;
-
-    color:white;
-
-    font-size:30px;
-    line-height:1.7;
-
-    text-shadow:
-    0 3px 8px rgba(0,0,0,.55);
-}
-
-/* =========================
-   GROUP
-========================= */
-
-.group-preview{
-    position:absolute;
-
-    top:935px;
-    left:50%;
-
-    transform:translateX(-50%);
+    top:520px;
+    left:0;
 
     width:100%;
 
@@ -214,9 +128,67 @@ body{
 
     color:white;
 
-    font-size:40px;
+    font-size:48px;
     font-weight:bold;
 
     text-shadow:
-    0 3px 8px rgba(0,0,0,.55);
+        0 3px 8px rgba(0,0,0,.5);
+}
+
+/* Reason */
+.reason-preview{
+    position:absolute;
+
+    top:690px;
+    left:70px;
+
+    width:630px;
+
+    text-align:center;
+
+    color:white;
+
+    font-size:26px;
+    line-height:1.6;
+
+    text-shadow:
+        0 2px 6px rgba(0,0,0,.5);
+}
+
+/* Group */
+.group-preview{
+    position:absolute;
+
+    top:870px;
+    left:0;
+
+    width:100%;
+
+    text-align:center;
+
+    color:white;
+
+    font-size:34px;
+    font-weight:bold;
+
+    text-shadow:
+        0 2px 6px rgba(0,0,0,.5);
+}
+
+/* Responsive */
+@media(max-width:1200px){
+
+    .container{
+        flex-direction:column;
+    }
+
+    .sidebar{
+        width:100%;
+        border-right:none;
+        border-bottom:1px solid #ddd;
+    }
+
+    .preview-wrapper{
+        overflow:auto;
+    }
 }
