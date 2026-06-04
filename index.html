@@ -1,280 +1,124 @@
 <!DOCTYPE html>
 <html lang="km">
 <head>
-
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width,initial-scale=1">
 
-<title>Super Camper Certificate Generator</title>
+<title>Super Camper V4</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Battambang:wght@400;700&family=Moul&display=swap" rel="stylesheet">
 
 <link rel="stylesheet" href="style.css">
-
-<link href="https://fonts.googleapis.com/css2?family=Battambang:wght@400;700&family=Koulen&display=swap" rel="stylesheet">
-
 </head>
-
 <body>
 
-<div class="container">
+<div class="app">
 
-    <!-- =========================
-         SIDEBAR
-    ========================== -->
+<div class="sidebar">
 
-    <div class="sidebar">
+<h2>🏕 Super Camper V4</h2>
 
-        <h1>🏕️ Super Camper</h1>
+<label>Template</label>
+<select id="templateSelect">
+<option value="ក្រហម.png">ក្រហម</option>
+<option value="បៃតង.png">បៃតង</option>
+<option value="លឿង.png">លឿង</option>
+<option value="ស្វាយ.png">ស្វាយ</option>
+<option value="ផ្កាឈូក.png">ផ្កាឈូក</option>
+<option value="ខៀវ.png">ខៀវ</option>
+</select>
 
-        <!-- Template -->
+<label>ឈ្មោះ</label>
+<input id="nameInput">
 
-        <label>ជ្រើស Template</label>
+<label>មូលហេតុ</label>
+<textarea id="reasonInput"></textarea>
 
-        <select id="templateSelect">
+<label>ក្រុម</label>
+<input id="groupInput">
 
-            <option value="ក្រហម.png">ក្រហម</option>
-            <option value="បៃតង.png">បៃតង</option>
-            <option value="លឿង.png">លឿង</option>
-            <option value="ស្វាយ.png">ស្វាយ</option>
-            <option value="ផ្កាឈូក.png">ផ្កាឈូក</option>
-            <option value="ខៀវ.png">ខៀវ</option>
+<label>រូបថត</label>
+<input type="file" id="photoInput" accept="image/*">
 
-        </select>
+<hr>
 
-        <!-- Text -->
+<h3>Text Editor</h3>
 
-        <label>ឈ្មោះអ្នកទទួល</label>
+<label>Select Element</label>
+<select id="targetText">
+<option value="namePreview">ឈ្មោះ</option>
+<option value="reasonPreview">មូលហេតុ</option>
+<option value="groupPreview">ក្រុម</option>
+</select>
 
-        <input
-            type="text"
-            id="recipientName"
-            placeholder="បញ្ចូលឈ្មោះ">
+<label>Font</label>
+<select id="fontFamily">
+<option value="Battambang">Battambang</option>
+<option value="Moul">Moul</option>
+</select>
 
-        <label>មូលហេតុទទួលវិញ្ញាបនបត្រ</label>
+<label>Font Size</label>
+<input type="range" id="fontSize" min="20" max="100" value="50">
 
-        <textarea
-            id="reason"
-            rows="4"
-            placeholder="បញ្ចូលមូលហេតុ"></textarea>
+<label>Text Color</label>
+<input type="color" id="textColor" value="#ffffff">
 
-        <label>ក្រុមពណ៌</label>
+<label>Shadow Color</label>
+<input type="color" id="shadowColor" value="#000000">
 
-        <input
-            type="text"
-            id="groupColor"
-            placeholder="ឧ. ក្រុមបៃតង">
+<label>
+<input type="checkbox" id="bold">
+Bold
+</label>
 
-        <!-- Photo -->
+<label>
+<input type="checkbox" id="italic">
+Italic
+</label>
 
-        <label>រូបថត</label>
+<hr>
 
-        <input
-            type="file"
-            id="photoInput"
-            accept="image/*">
+<h3>Photo Size</h3>
 
-        <hr>
+<label>Width</label>
+<input type="range" id="photoWidth" min="80" max="300" value="140">
 
-        <!-- =========================
-             CANVA TEXT EDITOR
-        ========================== -->
+<label>Height</label>
+<input type="range" id="photoHeight" min="100" max="350" value="180">
 
-        <h3>Text Editor</h3>
+<hr>
 
-        <label>កែអត្ថបទ</label>
+<button id="downloadPNG">
+Download PNG
+</button>
 
-        <select id="targetText">
+<button id="downloadPDF">
+Download PDF
+</button>
 
-            <option value="namePreview">
-                ឈ្មោះ
-            </option>
+</div>
 
-            <option value="reasonPreview">
-                មូលហេតុ
-            </option>
+<div class="workspace">
 
-            <option value="groupPreview">
-                ក្រុម
-            </option>
+<div id="certificate">
 
-        </select>
+<img id="photoPreview">
 
-        <label>Font</label>
+<div id="namePreview" class="draggable">
+ឈ្មោះ
+</div>
 
-        <select id="fontFamily">
+<div id="reasonPreview" class="draggable">
+មូលហេតុ
+</div>
 
-            <option value="Battambang">
-                Battambang
-            </option>
+<div id="groupPreview" class="draggable">
+ក្រុម
+</div>
 
-            <option value="Koulen">
-                Koulen
-            </option>
+</div>
 
-            <option value="Arial">
-                Arial
-            </option>
-
-        </select>
-
-        <label>Font Size</label>
-
-        <input
-            type="range"
-            id="fontSize"
-            min="20"
-            max="100"
-            value="40">
-
-        <label>Text Color</label>
-
-        <input
-            type="color"
-            id="textColor"
-            value="#ffffff">
-
-        <label>Shadow Color</label>
-
-        <input
-            type="color"
-            id="shadowColor"
-            value="#000000">
-
-        <label>
-
-            <input
-                type="checkbox"
-                id="boldToggle">
-
-            Bold
-
-        </label>
-
-        <label>
-
-            <input
-                type="checkbox"
-                id="italicToggle">
-
-            Italic
-
-        </label>
-
-        <label>X Position</label>
-
-        <input
-            type="range"
-            id="xPos"
-            min="-400"
-            max="400"
-            value="0">
-
-        <label>Y Position</label>
-
-        <input
-            type="range"
-            id="yPos"
-            min="0"
-            max="1100"
-            value="500">
-
-        <hr>
-
-        <!-- =========================
-             PHOTO EDITOR
-        ========================== -->
-
-        <h3>Photo Editor</h3>
-
-        <label>Photo Width</label>
-
-        <input
-            type="range"
-            id="photoWidth"
-            min="50"
-            max="400"
-            value="120">
-
-        <label>Photo Height</label>
-
-        <input
-            type="range"
-            id="photoHeight"
-            min="50"
-            max="500"
-            value="150">
-
-        <label>Photo X</label>
-
-        <input
-            type="range"
-            id="photoX"
-            min="-400"
-            max="400"
-            value="0">
-
-        <label>Photo Y</label>
-
-        <input
-            type="range"
-            id="photoY"
-            min="0"
-            max="1100"
-            value="300">
-
-        <button id="downloadPNG">
-
-            Download PNG
-
-        </button>
-
-        <button id="downloadPDF">
-
-            Download PDF
-
-        </button>
-
-    </div>
-
-    <!-- =========================
-         PREVIEW
-    ========================== -->
-
-    <div class="preview-wrapper">
-
-        <div id="certificate">
-
-            <img
-                id="photoPreview"
-                class="photo-preview"
-                alt="photo">
-
-            <div
-                id="namePreview"
-                class="name-preview">
-
-                ឈ្មោះអ្នកទទួល
-
-            </div>
-
-            <div
-                id="reasonPreview"
-                class="reason-preview">
-
-                មូលហេតុទទួលវិញ្ញាបនបត្រ
-
-            </div>
-
-            <div
-                id="groupPreview"
-                class="group-preview">
-
-                ក្រុម
-
-            </div>
-
-        </div>
-
-    </div>
+</div>
 
 </div>
 
