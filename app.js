@@ -1,4 +1,3 @@
-const templateSelect = document.getElementById("templateSelect");
 const certificate = document.getElementById("certificate");
 
 const recipientName = document.getElementById("recipientName");
@@ -9,95 +8,58 @@ const namePreview = document.getElementById("namePreview");
 const reasonPreview = document.getElementById("reasonPreview");
 const groupPreview = document.getElementById("groupPreview");
 
-const photoInput = document.getElementById("photoInput");
-const logoInput = document.getElementById("logoInput");
+const templateSelect = document.getElementById("templateSelect");
 
-const photoPreview = document.getElementById("photoPreview");
-const logoPreview = document.getElementById("logoPreview");
+recipientName.addEventListener("input", () => {
+    namePreview.textContent = recipientName.value || "ឈ្មោះអ្នកទទួល";
+});
+
+reason.addEventListener("input", () => {
+    reasonPreview.textContent = reason.value || "មូលហេតុទទួលវិញ្ញាបនបត្រ";
+});
+
+groupColor.addEventListener("input", () => {
+    groupPreview.textContent = groupColor.value || "ក្រុម";
+});
+
+templateSelect.addEventListener("change", () => {
+    certificate.style.backgroundImage =
+        `url('${templateSelect.value}')`;
+});
 
 certificate.style.backgroundImage =
-`url('${templateSelect.value}')`;
-
-templateSelect.addEventListener("change",()=>{
-    certificate.style.backgroundImage =
     `url('${templateSelect.value}')`;
-});
 
-recipientName.addEventListener("input",()=>{
-    namePreview.textContent =
-    recipientName.value || "ឈ្មោះអ្នកទទួល";
-});
+document.getElementById("photoInput")
+.addEventListener("change", e => {
 
-reason.addEventListener("input",()=>{
-    reasonPreview.textContent =
-    reason.value || "មូលហេតុទទួលវិញ្ញាបនបត្រ";
-});
-
-groupColor.addEventListener("input",()=>{
-    groupPreview.textContent =
-    groupColor.value || "ក្រុម";
-});
-
-photoInput.addEventListener("change",(e)=>{
     const file = e.target.files[0];
+
     if(!file) return;
 
-    photoPreview.src =
-    URL.createObjectURL(file);
+    const reader = new FileReader();
+
+    reader.onload = () => {
+        document.getElementById("photoPreview").src =
+            reader.result;
+    };
+
+    reader.readAsDataURL(file);
 });
 
-logoInput.addEventListener("change",(e)=>{
+document.getElementById("logoInput")
+.addEventListener("change", e => {
+
     const file = e.target.files[0];
+
     if(!file) return;
 
-    logoPreview.src =
-    URL.createObjectURL(file);
-});
+    const reader = new FileReader();
 
-document.getElementById("downloadPNG")
-.addEventListener("click",()=>{
+    reader.onload = () => {
+        document.getElementById("logoPreview").src =
+            reader.result;
+    };
 
-    html2canvas(certificate).then(canvas=>{
-
-        const link =
-        document.createElement("a");
-
-        link.download =
-        "certificate.png";
-
-        link.href =
-        canvas.toDataURL();
-
-        link.click();
-
-    });
-
-});
-
-document.getElementById("downloadPDF")
-.addEventListener("click",()=>{
-
-    html2canvas(certificate).then(canvas=>{
-
-        const img =
-        canvas.toDataURL("image/png");
-
-        const { jsPDF } = window.jspdf;
-
-        const pdf =
-        new jsPDF("p","mm","a4");
-
-        pdf.addImage(
-            img,
-            "PNG",
-            0,
-            0,
-            210,
-            297
-        );
-
-        pdf.save("certificate.pdf");
-
-    });
-
+    reader.readAsDataURL(file);
 });
