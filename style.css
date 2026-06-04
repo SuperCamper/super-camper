@@ -1,108 +1,3 @@
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-}
-
-body{
-    font-family:"Khmer OS Battambang",sans-serif;
-    background:#f0f2f5;
-}
-
-.container{
-    display:flex;
-    min-height:100vh;
-}
-
-/* ======================
-   SIDEBAR
-====================== */
-
-.sidebar{
-    width:320px;
-    background:#ffffff;
-    padding:20px;
-    border-right:1px solid #ddd;
-    overflow-y:auto;
-}
-
-.sidebar h1{
-    margin-bottom:20px;
-    text-align:center;
-}
-
-.sidebar label{
-    display:block;
-    margin-top:12px;
-    margin-bottom:5px;
-    font-weight:bold;
-}
-
-.sidebar input,
-.sidebar textarea,
-.sidebar select{
-    width:100%;
-    padding:10px;
-    border:1px solid #ccc;
-    border-radius:6px;
-    font-size:14px;
-}
-
-.sidebar textarea{
-    resize:none;
-}
-
-.sidebar button{
-    width:100%;
-    padding:12px;
-    margin-top:12px;
-    border:none;
-    border-radius:6px;
-    cursor:pointer;
-    font-weight:bold;
-}
-
-#downloadPNG{
-    background:#28a745;
-    color:white;
-}
-
-#downloadPDF{
-    background:#dc3545;
-    color:white;
-}
-
-/* ======================
-   PREVIEW
-====================== */
-
-.preview-wrapper{
-    flex:1;
-    display:flex;
-    justify-content:center;
-    align-items:flex-start;
-    padding:20px;
-    overflow:auto;
-}
-
-/* ======================
-   CERTIFICATE
-====================== */
-
-#certificate{
-    width:768px;
-    height:1086px;
-
-    position:relative;
-
-    background-image:url("ក្រហម.png");
-    background-size:cover;
-    background-repeat:no-repeat;
-    background-position:center;
-
-    box-shadow:0 0 20px rgba(0,0,0,.2);
-}
-
 /* ======================
    PHOTO 4x6
 ====================== */
@@ -110,20 +5,23 @@ body{
 .photo-preview{
     position:absolute;
 
-    width:180px;
-    height:270px;
+    width:140px;
+    height:190px;
 
-    top:315px;
-
+    top:280px;
     left:50%;
+
     transform:translateX(-50%);
 
     object-fit:cover;
 
     border:4px solid #ffffff;
-    border-radius:10px;
+    border-radius:12px;
 
     background:white;
+
+    box-shadow:
+    0 4px 15px rgba(0,0,0,.3);
 }
 
 /* ======================
@@ -133,8 +31,9 @@ body{
 .name-preview{
     position:absolute;
 
-    top:620px;
+    top:540px;
     left:50%;
+
     transform:translateX(-50%);
 
     width:90%;
@@ -143,11 +42,11 @@ body{
 
     color:white;
 
-    font-size:42px;
+    font-size:38px;
     font-weight:bold;
 
     text-shadow:
-        2px 2px 5px rgba(0,0,0,.4);
+    2px 2px 6px rgba(0,0,0,.6);
 }
 
 /* ======================
@@ -157,8 +56,9 @@ body{
 .reason-preview{
     position:absolute;
 
-    top:760px;
+    top:650px;
     left:50%;
+
     transform:translateX(-50%);
 
     width:80%;
@@ -171,7 +71,7 @@ body{
     line-height:1.6;
 
     text-shadow:
-        2px 2px 5px rgba(0,0,0,.4);
+    2px 2px 6px rgba(0,0,0,.6);
 }
 
 /* ======================
@@ -181,8 +81,9 @@ body{
 .group-preview{
     position:absolute;
 
-    top:900px;
+    top:790px;
     left:50%;
+
     transform:translateX(-50%);
 
     width:90%;
@@ -191,35 +92,9 @@ body{
 
     color:white;
 
-    font-size:30px;
+    font-size:28px;
     font-weight:bold;
 
     text-shadow:
-        2px 2px 5px rgba(0,0,0,.4);
-}
-
-/* ======================
-   MOBILE
-====================== */
-
-@media(max-width:1200px){
-
-    .container{
-        flex-direction:column;
-    }
-
-    .sidebar{
-        width:100%;
-        border-right:none;
-        border-bottom:1px solid #ddd;
-    }
-
-    .preview-wrapper{
-        padding:10px;
-    }
-
-    #certificate{
-        transform:scale(.75);
-        transform-origin:top center;
-    }
+    2px 2px 6px rgba(0,0,0,.6);
 }
