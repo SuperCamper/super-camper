@@ -1,117 +1,94 @@
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-}
+const templateSelect = document.getElementById("templateSelect");
+const recipientName = document.getElementById("recipientName");
+const reason = document.getElementById("reason");
+const groupColor = document.getElementById("groupColor");
+const photoInput = document.getElementById("photoInput");
 
-body{
-    font-family:sans-serif;
-    background:#f5f5f5;
-}
+const certificate = document.getElementById("certificate");
 
-.container{
-    display:flex;
-    min-height:100vh;
-}
+const namePreview = document.getElementById("namePreview");
+const reasonPreview = document.getElementById("reasonPreview");
+const groupPreview = document.getElementById("groupPreview");
+const photoPreview = document.getElementById("photoPreview");
 
-.sidebar{
-    width:300px;
-    background:white;
-    padding:20px;
-    border-right:1px solid #ddd;
-}
+templateSelect.addEventListener("change", () => {
+    certificate.style.backgroundImage =
+        `url("${templateSelect.value}")`;
+});
 
-.sidebar h1{
-    margin-bottom:20px;
-}
+recipientName.addEventListener("input", () => {
+    namePreview.textContent =
+        recipientName.value || "ឈ្មោះអ្នកទទួល";
+});
 
-.sidebar label{
-    display:block;
-    margin-top:15px;
-    margin-bottom:5px;
-}
+reason.addEventListener("input", () => {
+    reasonPreview.textContent =
+        reason.value || "មូលហេតុទទួលវិញ្ញាបនបត្រ";
+});
 
-.sidebar input,
-.sidebar textarea,
-.sidebar select{
-    width:100%;
-    padding:8px;
-}
+groupColor.addEventListener("input", () => {
+    groupPreview.textContent =
+        groupColor.value || "ក្រុម";
+});
 
-.sidebar button{
-    width:100%;
-    margin-top:15px;
-    padding:10px;
-    cursor:pointer;
-}
+photoInput.addEventListener("change", e => {
 
-.preview-wrapper{
-    flex:1;
-    display:flex;
-    justify-content:center;
-    padding:20px;
-}
+    const file = e.target.files[0];
 
-#certificate{
-    width:768px;
-    height:1086px;
+    if(!file) return;
 
-    background-image:url("ក្រហម.png");
-    background-size:cover;
-    background-position:center;
+    const reader = new FileReader();
 
-    position:relative;
-}
+    reader.onload = function(ev){
+        photoPreview.src = ev.target.result;
+    };
 
-.photo-preview{
-    position:absolute;
-    width:120px;
-    height:120px;
+    reader.readAsDataURL(file);
+});
 
-    object-fit:cover;
+document
+.getElementById("downloadPNG")
+.addEventListener("click", async () => {
 
-    top:330px;
-    left:324px;
+    const canvas =
+        await html2canvas(certificate);
 
-    border-radius:8px;
-    border:4px solid white;
-}
+    const link =
+        document.createElement("a");
 
-.name-preview{
-    position:absolute;
+    link.download =
+        "certificate.png";
 
-    top:560px;
-    width:100%;
+    link.href =
+        canvas.toDataURL();
 
-    text-align:center;
+    link.click();
+});
 
-    color:white;
-    font-size:48px;
-    font-weight:bold;
-}
+document
+.getElementById("downloadPDF")
+.addEventListener("click", async () => {
 
-.reason-preview{
-    position:absolute;
+    const canvas =
+        await html2canvas(certificate);
 
-    top:720px;
-    width:100%;
+    const imgData =
+        canvas.toDataURL("image/png");
 
-    text-align:center;
+    const { jsPDF } =
+        window.jspdf;
 
-    color:white;
-    font-size:28px;
+    const pdf =
+        new jsPDF("p","mm","a4");
 
-    padding:0 60px;
-}
+    pdf.addImage(
+        imgData,
+        "PNG",
+        0,
+        0,
+        210,
+        297
+    );
 
-.group-preview{
-    position:absolute;
-
-    top:850px;
-    width:100%;
-
-    text-align:center;
-
-    color:white;
-    font-size:32px;
-}
+    pdf.save("certificate.pdf");
+});
