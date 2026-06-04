@@ -6,7 +6,7 @@
 
 body{
     font-family:"Khmer OS Battambang",sans-serif;
-    background:#e5e5e5;
+    background:#ececec;
 }
 
 .container{
@@ -14,9 +14,13 @@ body{
     min-height:100vh;
 }
 
+/* =========================
+   SIDEBAR
+========================= */
+
 .sidebar{
     width:300px;
-    background:#fff;
+    background:#ffffff;
     padding:20px;
     border-right:1px solid #ddd;
 }
@@ -24,6 +28,7 @@ body{
 .sidebar h1{
     text-align:center;
     margin-bottom:20px;
+    color:#222;
 }
 
 .sidebar label{
@@ -31,32 +36,54 @@ body{
     margin-top:12px;
     margin-bottom:5px;
     font-weight:bold;
+    color:#444;
 }
 
 .sidebar input,
 .sidebar textarea,
 .sidebar select{
     width:100%;
-    padding:8px;
+    padding:10px;
+    border:1px solid #ccc;
+    border-radius:8px;
+    font-family:inherit;
+}
+
+.sidebar textarea{
+    resize:none;
 }
 
 .sidebar button{
     width:100%;
-    padding:10px;
-    margin-top:10px;
+    padding:12px;
+    margin-top:12px;
     border:none;
+    border-radius:8px;
     color:white;
     cursor:pointer;
-    border-radius:5px;
+    font-weight:bold;
+    font-size:15px;
 }
 
 #downloadPNG{
     background:#28a745;
 }
 
+#downloadPNG:hover{
+    background:#23913c;
+}
+
 #downloadPDF{
     background:#dc3545;
 }
+
+#downloadPDF:hover{
+    background:#bb2d3b;
+}
+
+/* =========================
+   PREVIEW
+========================= */
 
 .preview-wrapper{
     flex:1;
@@ -65,6 +92,10 @@ body{
     align-items:flex-start;
     padding:20px;
 }
+
+/* =========================
+   CERTIFICATE
+========================= */
 
 #certificate{
     width:768px;
@@ -77,82 +108,115 @@ body{
     background-position:center;
     background-repeat:no-repeat;
 
-    box-shadow:0 5px 20px rgba(0,0,0,.25);
+    overflow:hidden;
+
+    box-shadow:
+    0 10px 30px rgba(0,0,0,.25);
 }
 
-/* រូបថត 4x6 */
+/* =========================
+   LOGO
+========================= */
+
+.logo-preview{
+    display:none;
+}
+
+/* =========================
+   PHOTO 3x4
+========================= */
+
 .photo-preview{
     position:absolute;
 
-    width:170px;
-    height:255px;
+    width:200px;
+    height:267px;
 
-    left:299px;
-    top:250px;
+    top:260px;
+    left:284px;
 
     object-fit:cover;
 
-    border:5px solid #fff;
-    border-radius:12px;
-
     background:white;
 
-    box-shadow:0 5px 20px rgba(0,0,0,.35);
+    border:6px solid white;
+    border-radius:12px;
+
+    box-shadow:
+    0 8px 25px rgba(0,0,0,.35);
 }
 
-/* ឈ្មោះ */
+/* =========================
+   NAME
+========================= */
+
 .name-preview{
     position:absolute;
 
-    width:100%;
+    top:600px;
+    left:50%;
 
-    top:610px;
+    transform:translateX(-50%);
+
+    width:90%;
 
     text-align:center;
 
-    color:#fff;
+    color:white;
 
-    font-size:52px;
+    font-size:56px;
     font-weight:bold;
 
-    text-shadow:2px 2px 8px rgba(0,0,0,.6);
+    text-shadow:
+    0 3px 8px rgba(0,0,0,.55);
 }
 
-/* មូលហេតុ */
+/* =========================
+   REASON
+========================= */
+
 .reason-preview{
     position:absolute;
 
-    width:80%;
-
-    left:10%;
-
     top:760px;
+    left:50%;
+
+    transform:translateX(-50%);
+
+    width:80%;
 
     text-align:center;
 
-    color:#fff;
+    color:white;
 
-    font-size:28px;
+    font-size:30px;
+    line-height:1.7;
 
-    line-height:1.6;
-
-    text-shadow:2px 2px 8px rgba(0,0,0,.6);
+    text-shadow:
+    0 3px 8px rgba(0,0,0,.55);
 }
 
-/* ក្រុម */
+/* =========================
+   GROUP
+========================= */
+
 .group-preview{
     position:absolute;
 
-    width:100%;
+    top:935px;
+    left:50%;
 
-    top:930px;
+    transform:translateX(-50%);
+
+    width:100%;
 
     text-align:center;
 
-    color:#fff;
+    color:white;
 
-    font-size:36px;
+    font-size:40px;
     font-weight:bold;
 
-    text-shadow:2px 2px 8px rgba(0,0,0,.6);
+    text-shadow:
+    0 3px 8px rgba(0,0,0,.55);
 }
