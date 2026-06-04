@@ -1,83 +1,43 @@
-@import url('https://fonts.googleapis.com/css2?family=Battambang:wght@400;700&family=Koulen&display=swap');
-
 *{
 margin:0;
 padding:0;
 box-sizing:border-box;
+font-family:Battambang,sans-serif;
 }
 
 body{
-background:#e8e8e8;
-font-family:'Battambang',sans-serif;
+background:#e5e5e5;
 }
 
-/* =========================
-LAYOUT
-========================= */
-
-.container{
+.app{
 display:flex;
-min-height:100vh;
+height:100vh;
 }
-
-/* =========================
-SIDEBAR
-========================= */
 
 .sidebar{
 width:320px;
-background:#ffffff;
+background:white;
 padding:20px;
-overflow-y:auto;
-border-right:1px solid #ddd;
-box-shadow:0 0 15px rgba(0,0,0,.08);
-}
-
-.sidebar h1{
-text-align:center;
-margin-bottom:20px;
-font-size:28px;
-}
-
-.sidebar h3{
-margin-top:20px;
-margin-bottom:10px;
-}
-
-.sidebar hr{
-margin:20px 0;
-}
-
-.sidebar label{
-display:block;
-margin-top:10px;
-margin-bottom:5px;
-font-weight:700;
+overflow:auto;
+box-shadow:0 0 10px rgba(0,0,0,.2);
 }
 
 .sidebar input,
-.sidebar textarea,
-.sidebar select{
-width:100%;
-padding:10px;
-border:1px solid #ccc;
-border-radius:8px;
-font-size:14px;
-}
-
+.sidebar select,
 .sidebar textarea{
-resize:none;
+width:100%;
+margin-bottom:10px;
+padding:8px;
 }
 
 .sidebar button{
 width:100%;
-border:none;
 padding:12px;
-margin-top:12px;
-border-radius:8px;
-cursor:pointer;
+border:none;
+color:white;
 font-weight:bold;
-color:#fff;
+cursor:pointer;
+margin-top:10px;
 }
 
 #downloadPNG{
@@ -88,11 +48,7 @@ background:#28a745;
 background:#dc3545;
 }
 
-/* =========================
-PREVIEW AREA
-========================= */
-
-.preview-wrapper{
+.workspace{
 flex:1;
 display:flex;
 justify-content:center;
@@ -101,171 +57,95 @@ padding:20px;
 overflow:auto;
 }
 
-/* =========================
-CERTIFICATE
-========================= */
-
 #certificate{
-position:relative;
 
-```
 width:794px;
 height:1123px;
 
-background-image:url("ក្រហម.png");
+background-image:url("បៃតង.png");
 background-size:cover;
 background-position:center;
-background-repeat:no-repeat;
 
-box-shadow:0 10px 30px rgba(0,0,0,.25);
-```
+position:relative;
 
+box-shadow:0 0 20px rgba(0,0,0,.3);
 }
 
-/* =========================
-PHOTO
-========================= */
+#photoPreview{
 
-.photo-preview{
 position:absolute;
 
-```
-width:120px;
-height:150px;
+top:410px;
+left:327px;
 
-top:285px;
-left:50%;
-
-transform:translateX(-50%);
+width:140px;
+height:180px;
 
 object-fit:cover;
 
-border:4px solid #fff;
-border-radius:10px;
-
-background:#fff;
-
-cursor:move;
-
-box-shadow:
-    0 5px 15px rgba(0,0,0,.35);
-```
-
+border:4px solid white;
+border-radius:8px;
 }
 
-/* =========================
-NAME
-========================= */
+#namePreview{
 
-.name-preview{
 position:absolute;
 
-```
-top:470px;
-left:50%;
+top:670px;
+left:250px;
 
-transform:translateX(-50%);
-
-width:80%;
+width:300px;
 
 text-align:center;
 
-color:#ffffff;
+font-size:56px;
+font-weight:bold;
 
-font-size:54px;
-font-weight:700;
+color:white;
+text-shadow:2px 2px 8px black;
 
 cursor:move;
-
-text-shadow:
-    0 3px 8px rgba(0,0,0,.5);
-```
-
 }
 
-/* =========================
-REASON
-========================= */
+#reasonPreview{
 
-.reason-preview{
 position:absolute;
 
-```
-top:640px;
-left:50%;
+top:820px;
+left:120px;
 
-transform:translateX(-50%);
-
-width:75%;
+width:550px;
 
 text-align:center;
 
-color:#ffffff;
+font-size:28px;
 
-font-size:26px;
-line-height:1.7;
+color:white;
+text-shadow:2px 2px 6px black;
 
 cursor:move;
-
-text-shadow:
-    0 2px 5px rgba(0,0,0,.5);
-```
-
 }
 
-/* =========================
-GROUP
-========================= */
+#groupPreview{
 
-.group-preview{
 position:absolute;
 
-```
-top:780px;
-left:50%;
+top:930px;
+left:250px;
 
-transform:translateX(-50%);
-
-width:60%;
+width:300px;
 
 text-align:center;
 
-color:#ffffff;
+font-size:38px;
+font-weight:bold;
 
-font-size:34px;
-font-weight:700;
+color:white;
+text-shadow:2px 2px 6px black;
 
 cursor:move;
-
-text-shadow:
-    0 2px 5px rgba(0,0,0,.5);
-```
-
 }
 
-/* =========================
-RANGE INPUT
-========================= */
-
-input[type="range"]{
-padding:0;
-}
-
-/* =========================
-MOBILE
-========================= */
-
-@media(max-width:1200px){
-
-```
-.preview-wrapper{
-    justify-content:flex-start;
-}
-
-#certificate{
-    transform:scale(.70);
-    transform-origin:top left;
-}
-```
-
+.draggable{
+user-select:none;
 }
