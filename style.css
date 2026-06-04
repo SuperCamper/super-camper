@@ -1,49 +1,151 @@
 /* =========================
-   CERTIFICATE DESIGN
+   RESET
+========================= */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+/* =========================
+   BODY
+========================= */
+
+body{
+    font-family:
+        "Khmer OS Battambang",
+        "Khmer OS Siemreap",
+        sans-serif;
+
+    background:#ececec;
+}
+
+/* =========================
+   LAYOUT
+========================= */
+
+.container{
+    display:flex;
+    min-height:100vh;
+}
+
+.sidebar{
+    width:280px;
+    background:#fff;
+    padding:20px;
+    border-right:1px solid #ddd;
+}
+
+.sidebar h1{
+    text-align:center;
+    line-height:1.5;
+    margin-bottom:20px;
+}
+
+.sidebar label{
+    display:block;
+    margin-top:12px;
+    margin-bottom:5px;
+    font-weight:600;
+}
+
+.sidebar input,
+.sidebar textarea,
+.sidebar select{
+    width:100%;
+    padding:8px;
+    border:1px solid #ccc;
+    border-radius:5px;
+}
+
+.sidebar textarea{
+    height:90px;
+    resize:none;
+}
+
+.sidebar button{
+    width:100%;
+    padding:10px;
+    margin-top:10px;
+    border:none;
+    border-radius:6px;
+    cursor:pointer;
+    color:#fff;
+    font-weight:bold;
+}
+
+#downloadPNG{
+    background:#28a745;
+}
+
+#downloadPDF{
+    background:#dc3545;
+}
+
+/* =========================
+   PREVIEW
+========================= */
+
+.preview-wrapper{
+    flex:1;
+    display:flex;
+    justify-content:center;
+    align-items:flex-start;
+    padding:20px;
+}
+
+/* =========================
+   CERTIFICATE
 ========================= */
 
 #certificate{
+    position:relative;
+
     width:768px;
     height:1086px;
-    position:relative;
 
     background-size:cover;
     background-position:center;
     background-repeat:no-repeat;
 
     overflow:hidden;
+
+    box-shadow:
+        0 8px 20px rgba(0,0,0,.2);
 }
 
 /* =========================
-   PHOTO 3x4
+   PHOTO
 ========================= */
 
 .photo-preview{
     position:absolute;
 
-    width:120px;
-    height:160px;
+    width:130px;
+    height:170px;
 
-    top:245px;
-    left:324px;
+    top:255px;
+    left:319px;
 
     object-fit:cover;
 
-    border:3px solid #fff;
+    border:4px solid #fff;
     border-radius:10px;
 
     box-shadow:
-        0 6px 15px rgba(0,0,0,.25);
+        0 5px 15px rgba(0,0,0,.35);
 }
 
 /* =========================
-   CHILD NAME
+   NAME
 ========================= */
 
 .name-preview{
     position:absolute;
 
-    top:510px;
+    top:505px;
+    left:0;
 
     width:100%;
 
@@ -53,14 +155,12 @@
 
     font-family:
         "Khmer OS Muol Light",
-        "Khmer OS Battambang",
         sans-serif;
 
-    font-size:32px;
-    font-weight:bold;
+    font-size:34px;
 
     text-shadow:
-        0 3px 8px rgba(0,0,0,.45);
+        0 3px 8px rgba(0,0,0,.5);
 }
 
 /* =========================
@@ -71,18 +171,15 @@
     position:absolute;
 
     top:650px;
+    left:0;
 
     width:100%;
 
-    padding:0 100px;
+    padding:0 90px;
 
     text-align:center;
 
     color:#fff;
-
-    font-family:
-        "Khmer OS Battambang",
-        sans-serif;
 
     font-size:22px;
     line-height:1.6;
@@ -99,6 +196,7 @@
     position:absolute;
 
     top:800px;
+    left:0;
 
     width:100%;
 
@@ -114,4 +212,27 @@
 
     text-shadow:
         0 2px 6px rgba(0,0,0,.4);
+}
+
+/* =========================
+   MOBILE
+========================= */
+
+@media(max-width:1100px){
+
+    .container{
+        flex-direction:column;
+    }
+
+    .sidebar{
+        width:100%;
+        border-right:none;
+        border-bottom:1px solid #ddd;
+    }
+
+    .preview-wrapper{
+        padding:15px;
+        overflow:auto;
+        justify-content:flex-start;
+    }
 }
