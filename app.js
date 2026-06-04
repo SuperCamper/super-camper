@@ -1,97 +1,103 @@
-body{
-    margin:0;
-    font-family:'Khmer OS Battambang',sans-serif;
-    background:#f3f3f3;
-}
+const templateSelect = document.getElementById("templateSelect");
+const certificate = document.getElementById("certificate");
 
-.container{
-    display:flex;
-    gap:20px;
-    padding:20px;
-}
+const recipientName = document.getElementById("recipientName");
+const reason = document.getElementById("reason");
+const groupColor = document.getElementById("groupColor");
 
-.sidebar{
-    width:320px;
-    background:white;
-    padding:20px;
-    border-radius:12px;
-    box-shadow:0 0 10px rgba(0,0,0,.1);
-}
+const namePreview = document.getElementById("namePreview");
+const reasonPreview = document.getElementById("reasonPreview");
+const groupPreview = document.getElementById("groupPreview");
 
-.sidebar input,
-.sidebar textarea,
-.sidebar select,
-.sidebar button{
-    width:100%;
-    margin-top:8px;
-    margin-bottom:15px;
-    padding:10px;
-    box-sizing:border-box;
-}
+const photoInput = document.getElementById("photoInput");
+const logoInput = document.getElementById("logoInput");
 
-.preview-wrapper{
-    flex:1;
-    display:flex;
-    justify-content:center;
-}
+const photoPreview = document.getElementById("photoPreview");
+const logoPreview = document.getElementById("logoPreview");
 
-#certificate{
-    width:800px;
-    height:1131px;
-    position:relative;
-    background-size:cover;
-    background-position:center;
-}
+certificate.style.backgroundImage =
+`url('${templateSelect.value}')`;
 
-.logo-preview{
-    position:absolute;
-    top:35px;
-    left:50%;
-    transform:translateX(-50%);
-    width:120px;
-    height:120px;
-    object-fit:contain;
-}
+templateSelect.addEventListener("change",()=>{
+    certificate.style.backgroundImage =
+    `url('${templateSelect.value}')`;
+});
 
-.photo-preview{
-    position:absolute;
-    top:390px;
-    left:50%;
-    transform:translateX(-50%);
-    width:140px;
-    height:180px;
-    object-fit:cover;
-    border-radius:10px;
-    border:4px solid white;
-}
+recipientName.addEventListener("input",()=>{
+    namePreview.textContent =
+    recipientName.value || "ឈ្មោះអ្នកទទួល";
+});
 
-.name-preview{
-    position:absolute;
-    top:300px;
-    width:100%;
-    text-align:center;
-    font-size:52px;
-    color:white;
-    font-weight:bold;
-}
+reason.addEventListener("input",()=>{
+    reasonPreview.textContent =
+    reason.value || "មូលហេតុទទួលវិញ្ញាបនបត្រ";
+});
 
-.group-preview{
-    position:absolute;
-    top:650px;
-    width:100%;
-    text-align:center;
-    font-size:50px;
-    color:white;
-    font-weight:bold;
-}
+groupColor.addEventListener("input",()=>{
+    groupPreview.textContent =
+    groupColor.value || "ក្រុម";
+});
 
-.reason-preview{
-    position:absolute;
-    top:760px;
-    width:80%;
-    left:10%;
-    text-align:center;
-    font-size:28px;
-    color:white;
-    line-height:1.6;
-}
+photoInput.addEventListener("change",(e)=>{
+    const file = e.target.files[0];
+    if(!file) return;
+
+    photoPreview.src =
+    URL.createObjectURL(file);
+});
+
+logoInput.addEventListener("change",(e)=>{
+    const file = e.target.files[0];
+    if(!file) return;
+
+    logoPreview.src =
+    URL.createObjectURL(file);
+});
+
+document.getElementById("downloadPNG")
+.addEventListener("click",()=>{
+
+    html2canvas(certificate).then(canvas=>{
+
+        const link =
+        document.createElement("a");
+
+        link.download =
+        "certificate.png";
+
+        link.href =
+        canvas.toDataURL();
+
+        link.click();
+
+    });
+
+});
+
+document.getElementById("downloadPDF")
+.addEventListener("click",()=>{
+
+    html2canvas(certificate).then(canvas=>{
+
+        const img =
+        canvas.toDataURL("image/png");
+
+        const { jsPDF } = window.jspdf;
+
+        const pdf =
+        new jsPDF("p","mm","a4");
+
+        pdf.addImage(
+            img,
+            "PNG",
+            0,
+            0,
+            210,
+            297
+        );
+
+        pdf.save("certificate.pdf");
+
+    });
+
+});
